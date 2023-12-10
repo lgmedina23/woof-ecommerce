@@ -29,11 +29,11 @@ export const ProductDetails = () => {
 
     return (
         <div className="container text-center">
-            <div className="container text-center">
-                <div className="row row-cols-1 row-cols-lg-2 g-2 g-lg-3">
-                    <div className="col">
-                        <div className="p-3">
-                            <div id="carouselExampleIndicators" className="carousel slide p-3 carousel-dark">
+            <div className="row row-cols-1 row-cols-lg-2">
+                <div className="col">
+                    <div className="">
+                        <img src={store.product.image_url} className="img-fluid" alt="..." />
+                        {/* <div id="carouselExampleIndicators" className="carousel slide p-3 carousel-dark">
                                 <div className="carousel-indicators">
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -41,7 +41,7 @@ export const ProductDetails = () => {
                                 </div>
                                 <div className="carousel-inner">
                                     <div className="carousel-item active">
-                                        <img src="https://www.tiendanimal.es/dw/image/v2/BDLQ_PRD/on/demandware.static/-/Sites-kiwoko-master-catalog/default/dw5bc9bb3c/images/pienso_perros_royal_canin_maxi_adult_ROY153637_M.jpg?sw=528&sh=528"
+                                        <img src={store.product.image_url}
                                             className="d-block w-100" alt="..." />
                                     </div>
                                     <div className="carousel-item">
@@ -61,53 +61,51 @@ export const ProductDetails = () => {
                                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span className="visually-hidden">Next</span>
                                 </button>
-                            </div>
-                        </div>
+                            </div> */}
                     </div>
-                    <div className="col">
-                        <div className="p-3">
-                            <div className="container text-center">
-                                <div className="row row-cols-1 row-cols-lg-1 g-2 g-lg-3">
-                                    <div className="col">
-                                        <div className="p-3">
-                                            <div className="mt-3 text-dark">
-                                                <h3 className="text-dark text-start fw-semibold">{store.product.name}</h3>
-                                                <p className="text-start mt-3">{store.product.description}</p>
-                                                <div className="d-flex justify-content-between">
-                                                    <h5 className="text-start text-dark mb-3 fw-bold">Formato</h5>
-                                                    <h5 className="text-start text-dark mb-3 fw-bold">Precio</h5>
-                                                </div>
-                                                <div className="container d-flex justify-content-between">
-                                                    <p>Saco de {store.product.weight} kg</p>
-                                                    <div className="price">
-                                                        <p className="fw-semibold mb-0">{store.product.pricing} €</p>
-                                                    </div>
+                </div>
+                <div className="col">
+                    <div className="p-3">
+                        <div className="container text-center">
+                            <div className="row row-cols-1 row-cols-lg-1">
+                                <div className="col">
+                                    <div className="p-3">
+                                        <div className="mt-3 text-dark">
+                                            <h3 className="text-dark text-start fw-semibold">{store.product.name}</h3>
+                                            <p className="text-start mt-3">{store.product.description}</p>
+                                            <div className="d-flex justify-content-between">
+                                                <h5 className="text-start text-dark mb-3 fw-bold">Formato</h5>
+                                                <h5 className="text-start text-dark mb-3 fw-bold">Precio</h5>
+                                            </div>
+                                            <div className="d-flex justify-content-between">
+                                                <p>Saco de {store.product.weight} kg</p>
+                                                <div className="price">
+                                                    <p className="fw-semibold mb-0">{store.product.pricing} €</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col">
-                                        <div className="container text-center">
-                                            <div className="row row-cols-1 row-cols-lg-2 g-lg-3">
-
-                                                <form className="form ms-3" onSubmit={handleOnSubmit}>
-                                                    <div className="col">
-                                                        <h5 className="text-start text-dark mb-3 fw-bold">Cantidad</h5>
-                                                        <div className="form-outline d-flex" style={{ width: "22rem" }}>
-                                                            <label className="form-label" htmlFor="typeNumber"></label>
-                                                            <input min="1" max="100" type="number" id="typeNumber" className="form-control w-25"
-                                                                value={quantity} onChange={handleQuantity} />
+                                </div>
+                                <div className="col">
+                                    <div className="container text-center">
+                                        <div className="row row-cols-1 row-cols-lg-1">
+                                            <form className="form" onSubmit={handleOnSubmit}>
+                                                <div className="col">
+                                                    <h5 className="text-start text-dark mb-3 fw-bold">Cantidad</h5>
+                                                    <div className="form-outline d-flex" style={{ width: "17rem" }}>
+                                                        <label className="form-label" htmlFor="typeNumber"></label>
+                                                        <input min="1" max="100" type="number" id="typeNumber" className="form-control w-25"
+                                                            value={quantity} onChange={handleQuantity} />
+                                                    </div>
+                                                </div>
+                                                <div className="col">
+                                                    <div className="mt-4">
+                                                        <div className="d-grid gap-2">
+                                                            <button className="btn btn-primary" onClick={handleAddItem} type="submit">Añadir al carrito <i className="fas fa-shopping-cart"></i></button>
                                                         </div>
                                                     </div>
-                                                    <div className="col">
-                                                        <div className="p-3 mt-4">
-                                                            <div className="d-grid gap-2">
-                                                                <button className="btn btn-primary" onClick={handleAddItem} type="submit">Añadir al carrito <i className="fas fa-shopping-cart"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
