@@ -26,13 +26,26 @@ def handle_login():
     password = request.json.get("password", None)
     results = {'user': {},
                'cart': {},
-               'item': {}}
+               'item': {},
+               'bills': {}}
     user = db.one_or_404(db.select(Users).filter_by(email=email, password=password, is_active=True), 
                          description=f"Email o password incorrectos.")
     access_token = create_access_token(identity=[user.id, 
                                                  user.is_admin,])
     results['user'] = user.serialize()
+    bills = bills = db.session.query(Bills).order_by(Bills.id).all()
+    bill_list = []
+    for bill in bills:
+        current_bill = bill.serialize()
+        item_list = []
+        items = db.session.query(BillItems).filter_by(bill_id=bill.id).all()
+        for item in items:
+            current_item = item.serialize()
+            item_list.append(current_item)
+        current_bill['bill_items'] = item_list
+        bill_list.append(current_bill)
     if user.is_admin:
+        results['bills'] = bill_list.serialize()
         response_body = {'message': 'Token created',
                          'token': access_token,
                          'results': results}
