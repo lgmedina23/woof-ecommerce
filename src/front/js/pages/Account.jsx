@@ -9,10 +9,10 @@ export const Account = () => {
 
     return (
         <div className="container">
-            <h3 className="text-start mt-5">Mi datos</h3>
-            <div className="container px-4 text-center my-5">
-                <div className="row gx-5">
-                    <div className="col border border-primary me-3">
+            <h3 className="text-center text-dark my-5">Mi datos</h3>
+            <div className="col col-lg-6 container rounded mb-5">
+                <div className="row">
+                    <div className="col border border-primary">
                         <div className="p-3">
                             <div className="d-flex justify-content-between">
                                 <h5>Mis datos</h5>

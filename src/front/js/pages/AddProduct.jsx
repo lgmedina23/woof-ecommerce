@@ -55,7 +55,7 @@ export const AddProduct = () => {
     return (
         <div className="container mb-5">
             <h1 className="d-flex justify-content-center mt-4 text-dark">Agregar Producto</h1>
-            <div className="container bg-primary-subtle rounded" style={{ width: '50%', height: '50%' }}>
+            <div className="col col-lg-6 container bg-primary-subtle rounded mb-5">
                 <form className="text-dark mt-3 p-2" onSubmit={handleSubmit}>
                     <div className="row mt-3">
                         <div className="col-6">

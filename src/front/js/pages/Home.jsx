@@ -51,7 +51,7 @@ export const Home = () => {
 					<span className="visually-hidden">Next</span>
 				</button>
 			</div>
-			<div className="container d-flex align-items-center flex-column mb-3">
+			<div className="container mb-3">
 				<h1 className="mb-2 text-center mb-4 mt-4 fw-semibold text-dark">Top productos</h1>
 				<ProductsOverFlow />
 			</div>
