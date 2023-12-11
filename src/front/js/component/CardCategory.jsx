@@ -6,7 +6,7 @@ export const CardCategory = () => {
 
     return (
         <div className="container mt-4 m-auto">
-            <div className="row row-cols-sm-2 row-cols-xs-1 row-cols-xl-4">
+            <div className="row row-cols-sm-1 row-cols-xs-1 row-cols-xl-4">
                 <div className="col col-lg-6 d-flex justify-content-center">
                     <div className="p-3">
                         <Link to="/category" className="text-decoration-none">

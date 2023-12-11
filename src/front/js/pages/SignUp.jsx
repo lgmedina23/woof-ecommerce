@@ -50,7 +50,7 @@ export const SignUp = () => {
     return (
         <div className="container my-5 p-3">
             <h1 className="text-center text-dark my-3">SignUp</h1>
-            <div className="container" style={{ width: '50%', height: '50%' }}>
+            <div className="col col-lg-6 container">
                 <form>
                     <div className="form-floating mb-3 border border-primary rounded">
                         <input type="text" value={firtsName} onChange={handleFirtsName}

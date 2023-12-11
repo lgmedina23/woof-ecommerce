@@ -631,9 +631,6 @@ def bills(bills_id):
 def handle_upload():
     if 'image' not in request.files:
         raise APIException("No image to upload")
-    # image = cloudinary.uploader.upload("https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg", 
-    # public_id = "olympic_flag")
-    # print(image)
     result = cloudinary.uploader.upload(request.files['image'],
                                         public_id=f'example/my-image-name',
                                         crop='limit',
@@ -643,15 +640,10 @@ def handle_upload():
                                                 'crop': 'thumb', 'gravity': 'face',
                                                 'radius': 100}],
                                         tags=['profile_picture'])
-    # response_body = {'results': result['secure_url']}
     print(result)
     print(result['secure_url'])
     response_body = {'results': result['url']}
     return response_body, 200
-    # my_image = UserImage()
-    # my_image.url = result['secure_url']
-    # my_image.save()
-
 
 
 """

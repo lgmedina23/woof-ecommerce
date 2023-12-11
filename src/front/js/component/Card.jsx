@@ -26,15 +26,15 @@ export const Card = (props) => {
                     </div> */}
                     <Link to={"/products/" + props.product.id} className="text-center my-4">
                         <img src={props.product.image_url}
-                            className="card-img-top object-fit-fill" alt="Pienso" style={{ width: '150px', height: '150px' }} />
+                            className="card-img-top object-fit-fill rounded" alt="Pienso" style={{ width: '150px', height: '150px' }} />
                     </Link>
                     <div className="card-body text-dark">
                         <div className="d-flex justify-content-between mb-1">
-                            <h5 className="mb-0">{props.product.name}</h5>
-                            <h5 className="text-dark mb-0">{props.product.pricing} $</h5>
+                            <p className="mb-0 fw-semibold fs-5">{props.product.name}</p>
+                            <p className="text-dark mb-0 fw-semibold">{props.product.pricing} $</p>
                         </div>
                         <div className="d-flex justify-content-between mb-1">
-                            <p>Disponible: <span className="fw-bold">{props.product.stock}</span></p>
+                            <p>Disponible: <span className="fw-semibold">{props.product.stock}</span></p>
                             {/* <div className="ms-auto text-warning">
                                 <StarReating />
                             </div> */}
