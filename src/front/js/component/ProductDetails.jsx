@@ -78,7 +78,7 @@ export const ProductDetails = () => {
                                                 <h5 className="text-start text-dark mb-3 fw-bold">Precio</h5>
                                             </div>
                                             <div className="d-flex justify-content-between">
-                                                <p>Saco de {store.product.weight} kg</p>
+                                                <p>Peso {store.product.weight} kg</p>
                                                 <div className="price">
                                                     <p className="fw-semibold mb-0">{store.product.pricing} €</p>
                                                 </div>
