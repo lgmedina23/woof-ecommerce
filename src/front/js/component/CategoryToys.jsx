@@ -6,7 +6,6 @@ import { Card } from "./Card.jsx";
 export const CategoryToys = () => {
     const { store, actions } = useContext(Context);
     const filteredProducts = store.products.filter((product) => product.categorie_id === 3);
-    console.log(filteredProducts);
 
     return (
         <div className="container mt-4 m-auto">
