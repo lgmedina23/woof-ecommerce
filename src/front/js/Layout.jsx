@@ -27,6 +27,7 @@ import { Disclaimer } from "./pages/Disclaimer.jsx";
 import { SignUp } from "./pages/SignUp.jsx";
 import { AddProduct } from "./pages/AddProduct.jsx";
 import { Support } from "./pages/Support.jsx";
+import { BillsFlow } from "./component/BillsFlow.jsx";
 
 
 
@@ -50,6 +51,7 @@ const Layout = () => {
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                         <Route element={<Form />} path="/form" />
+                        <Route element={<BillsFlow />} path="/bills-flow" />
                         <Route element={<Product />} path="/products/:idProduct" />
                         <Route element={<Account />} path="/account" />
                         <Route element={<ShoppingCart />} path="/shopping-cart" />

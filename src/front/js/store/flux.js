@@ -66,7 +66,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ shoppingCarts: cart });
         const cartItem = data.results.item ? data.results.item : []
         setStore({ shoppingCartItems: cartItem });
-        // store.bills = 
+        const billList = data.results.bills ? data.results.bills : []
+        setStore({ bills: billList}) 
         // store.billsItem =
         setStore({ isLogin: true });
       },
