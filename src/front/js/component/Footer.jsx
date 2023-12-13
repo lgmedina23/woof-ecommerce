@@ -45,6 +45,7 @@ export const Footer = () => {
                 <li className="nav-item mb-2"><Link to="/politica-de-privacidad" className="nav-link p-0 text-body-secondary">Política de privacidad</Link></li>
                 <li className="nav-item mb-2"><Link to="/uso" className="nav-link p-0 text-body-secondary">Condiciones de uso</Link></li>
                 <li className="nav-item mb-2"><Link to="/condiciones-de-envio" className="nav-link p-0 text-body-secondary">Condiciones de envio</Link></li>
+                <li className="nav-item mb-2"><Link to="/support" className="nav-link p-0 text-body-secondary">Contacta con nosotros</Link></li>
               </ul>
             </div>
             <div className="col-md-3 offset-md-1 mb-3">
