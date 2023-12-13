@@ -653,8 +653,6 @@ def handle_upload():
                                                 'crop': 'thumb', 'gravity': 'face',
                                                 'radius': 100}],
                                         tags=['profile_picture'])
-    print(result)
-    print(result['secure_url'])
     response_body = {'results': result['url']}
     return response_body, 200
 
