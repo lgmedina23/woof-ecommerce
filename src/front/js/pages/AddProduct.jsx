@@ -15,6 +15,8 @@ export const AddProduct = () => {
     const [weight, setWeight] = useState('');
     const [previewImage, setPreviewImage] = useState(null);
 
+    const navigate = useNavigate()
+
     const handleCategory = (event) => setCategory(event.target.value)
     const handleName = (event) => setName(event.target.value)
     const handleDescription = (event) => setDescription(event.target.value)
@@ -38,7 +40,8 @@ export const AddProduct = () => {
         const imageUrl = store.upload
         await actions.postProducts({name, description, productDetail, pricing, stripeCode, 
                                     weight, stock, subscribeable, imageUrl, category })
-        // navigate("/category")
+        await actions.getProducts()
+        navigate("/category")
     }
 
     const handleFileChange = (e) => {
