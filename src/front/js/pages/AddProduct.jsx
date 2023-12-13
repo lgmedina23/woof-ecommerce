@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 
@@ -23,6 +23,8 @@ export const AddProduct = () => {
     const handleWeight = (event) => setWeight(event.target.value)
     const handleStripeCode = (event) => setStripeCode(event.target.value)
 
+    // const navigate = useNavigate()
+
     const subscribeable = false
     const productDetail = ''
     
@@ -33,10 +35,10 @@ export const AddProduct = () => {
             // call the action and pass the file
             await actions.uploadFile(files[0]);
         }
-        console.log(files);
         const imageUrl = store.upload
         await actions.postProducts({name, description, productDetail, pricing, stripeCode, 
                                     weight, stock, subscribeable, imageUrl, category })
+        // navigate("/category")
     }
 
     const handleFileChange = (e) => {

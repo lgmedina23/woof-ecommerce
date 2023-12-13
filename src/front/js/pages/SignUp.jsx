@@ -49,7 +49,7 @@ export const SignUp = () => {
 
     return (
         <div className="container my-5 p-3">
-            <h1 className="text-center text-dark my-3">SignUp</h1>
+            <h1 className="text-center text-dark my-3">Crear cuenta</h1>
             <div className="col col-lg-6 container">
                 <form>
                     <div className="form-floating mb-3 border border-primary rounded">
@@ -66,20 +66,20 @@ export const SignUp = () => {
                         <input type="email" value={email} onChange={handleEmail}
                             className="form-control" id="exampleInputEmail1" placeholder="Email address"
                             aria-describedby="emailHelp" />
-                        <label htmlFor="exampleInputEmail1">Email address</label>
+                        <label htmlFor="exampleInputEmail1">Email</label>
                     </div>
                     <div className="input-group mb-3 border border-primary rounded">
                         <div className="form-floating">
                             <input type={viewPassword ? "text" : "password"} value={password} onChange={handlePassword}
                                 className="form-control" id="floatingInputGroup1" placeholder="Password" />
-                            <label htmlFor="floatingInputGroup1">Password</label>
+                            <label htmlFor="floatingInputGroup1">Contraseña</label>
                         </div>
                         <span className="input-group-text" onClick={handleViewPasswort}>
                             {viewPassword ? <i className="far fa-eye-slash"></i> : <i className="far fa-eye"></i>}
                         </span>
                     </div>
-                    <button type="button" onClick={signUp} className="btn btn-primary me-4">SignUp</button>
-                    <button type="reset" className="btn btn-secondary">Cancel</button>
+                    <button type="button" onClick={signUp} className="btn btn-primary me-4">Crear</button>
+                    <button type="reset" className="btn btn-secondary">Cancelar</button>
                 </form>
             </div>
         </div>

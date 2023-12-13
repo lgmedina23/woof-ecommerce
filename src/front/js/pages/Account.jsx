@@ -36,7 +36,8 @@ export const Account = () => {
                                 </dl>
                                 <dl>
                                     <dt>Número de identificación</dt>
-                                    <dd>{store.user.identification_type + ':' +' '}{store.user.identification_number}</dd>
+                                    {/* <dd>{store.user.identification_type + ':' +' '}{store.user.identification_number}</dd> */}
+                                    <dd>{store.user.identification_type === null ? '' : store.user.identification_type + ':' + store.user.identification_number}</dd>
                                 </dl>
                                 <dl>
                                     <dt>Address</dt>
