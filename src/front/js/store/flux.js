@@ -1,5 +1,3 @@
-// import { loadStripe } from '@stripe/stripe-js';
-
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {

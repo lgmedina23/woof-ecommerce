@@ -33,7 +33,7 @@ def handle_login():
     access_token = create_access_token(identity=[user.id, 
                                                  user.is_admin,])
     results['user'] = user.serialize()
-    bills = db.session.query(Bills).order_by(Bills.id).all()
+    bills = db.session.query(Bills).order_by(Bills.id.desc()).all()
     bill_list = []
     for bill in bills:
         current_bill = bill.serialize()
@@ -49,14 +49,12 @@ def handle_login():
         response_body = {'message': 'Token created',
                          'token': access_token,
                          'results': results}
-        print(response_body)
         return response_body, 200
     cart = db.session.execute(db.select(ShoppingCarts).where(ShoppingCarts.user_id == user.id)).scalar()
     if not cart:
         response_body = {'message': 'Token created',
                          'token': access_token,
                          'results': results}
-        print(response_body)
         return response_body, 200
     items = db.session.execute(db.select(ShoppingCartItems).where(ShoppingCartItems.shopping_cart_id == cart.id)).scalars()
     results['cart'] = cart.serialize() if cart else {}
@@ -64,7 +62,6 @@ def handle_login():
     response_body = {'message': 'Token created',
                      'token': access_token,
                      'results': results}
-    print(response_body)
     return response_body, 200
 
 
