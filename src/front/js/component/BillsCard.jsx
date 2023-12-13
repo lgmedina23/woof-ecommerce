@@ -9,18 +9,15 @@ export const BillsCard = (props) => {
 
 
     return (
-        <section>
-            <div className="card">
-                <div className="card-header">
-                    Featured
-                </div>
-                <ul className="list-group list-group-flush">
-                    <li className="list-group-item">An item</li>
-                    <li className="list-group-item">A second item</li>
-                    <li className="list-group-item">A third item</li>
+        <section className="container mt-4">
+            <div className="card text-dark border-primary">
+                <div className="card-header fw-bolder bg-primary-subtle">Número de factura: {props.bill.id}</div>
+                <ul className="list-group list-group-flush text-start">
+                    <li className="list-group-item text-dark"><span className="fw-medium">Productos: {props.bill.bill_items.length}</span></li>
+                    <li className="list-group-item text-dark"><span className="fw-medium">Precio total: </span>{props.bill.total_price}€</li>
+                    <li className="list-group-item text-warning"><span className="fw-medium text-dark">Estatus: </span>{props.bill.status}</li>
                 </ul>
             </div>
         </section>
-
     )
 }

@@ -81,7 +81,7 @@ export const Form = () => {
                     </div>
                     <div className="text-start ms-1 mt-3">
                         <div className="d-grid gap-2 d-md-block mb-3">
-                            <button className="btn btn-primary me-2" type="submit">Enviar</button>
+                            <button className="btn btn-primary me-2" type="submit">Guardar</button>
                             <Link to="/account" className="btn btn-secondary me-2">Cancelar</Link>
                         </div>
                     </div>

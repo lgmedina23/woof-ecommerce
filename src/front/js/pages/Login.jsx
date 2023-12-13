@@ -42,8 +42,8 @@ export const Login = () => {
 
   return (
     <div className="container my-5 p-3">
-      <h1 className="text-center text-dark my-3">Login</h1>
-      <div className="container" style={{ width: '50%', height: '50%' }}>
+      <h1 className="text-center text-dark my-3">Iniciar Sesión</h1>
+      <div className="container col col-lg-5">
         <form>
           <div className="form-floating mb-3 border border-primary rounded">
             <input type="email" value={email} onChange={handleEmail}
