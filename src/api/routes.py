@@ -44,7 +44,7 @@ def handle_login():
             item_list.append(current_item)
         current_bill['bill_items'] = item_list
         bill_list.append(current_bill)
-        results['bills'] = bill_list.serialize()       
+        results['bills'] =  bill_list    
     if user.is_admin:
         response_body = {'message': 'Token created',
                          'token': access_token,
