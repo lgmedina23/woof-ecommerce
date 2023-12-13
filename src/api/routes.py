@@ -33,7 +33,7 @@ def handle_login():
     access_token = create_access_token(identity=[user.id, 
                                                  user.is_admin,])
     results['user'] = user.serialize()
-    bills = bills = db.session.query(Bills).order_by(Bills.id).all()
+    bills = db.session.query(Bills).order_by(Bills.id.desc()).all()
     bill_list = []
     for bill in bills:
         current_bill = bill.serialize()

@@ -10,7 +10,7 @@ export const BillsCard = (props) => {
 
     return (
         <section>
-            <div className="card" style="width: 18rem;">
+            <div className="card">
                 <div className="card-header">
                     Featured
                 </div>

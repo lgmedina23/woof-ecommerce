@@ -1,5 +1,3 @@
-// import { loadStripe } from '@stripe/stripe-js';
-
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -67,6 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const cartItem = data.results.item ? data.results.item : []
         setStore({ shoppingCartItems: cartItem });
         const billList = data.results.bills ? data.results.bills : []
+        console.log(billList);
         setStore({ bills: billList}) 
         // store.billsItem =
         setStore({ isLogin: true });
