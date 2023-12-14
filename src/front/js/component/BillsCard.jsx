@@ -21,7 +21,7 @@ export const BillsCard = (props) => {
                         return ( 
                             <li  key={index} className="list-group-item text-dark d-flex justify-content-between">
                                 <span className="fw-medium">Nombre: {currentProduct[0].name} </span>
-                                <span className="fw-medium">Cant.: {element.quantity} </span>
+                                <span className="fw-medium">Cant: {element.quantity} </span>
                             </li>
                         )
                     })}
