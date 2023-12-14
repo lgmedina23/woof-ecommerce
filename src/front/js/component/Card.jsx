@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../store/appContext.js";
 import { QuantityButton } from "./QuantityButton.jsx";
+import { Modal } from "./Modal.jsx";
 
 export const Card = (props) => {
     const { store, actions } = useContext(Context);
@@ -43,12 +44,15 @@ export const Card = (props) => {
                             <Link to={"/products/" + props.product.id}>Mas detalles</Link>
                         </div>
                         <div className="d-grid">
-                            <button type="button" onClick={handleAddItem} className="btn btn-primary">Añadir al carrito<i className="fas fa-shopping-cart ms-2"></i></button>
+                            {store.isLogin ? 
+                            <button type="button" onClick={handleAddItem} className="btn btn-primary">Añadir al carrito<i className="fas fa-shopping-cart ms-2"></i></button> 
+                            : 
+                            <Modal />}
+                            {/* <button type="button" onClick={handleAddItem} className="btn btn-primary">Añadir al carrito<i className="fas fa-shopping-cart ms-2"></i></button> */}
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
     )
 }
