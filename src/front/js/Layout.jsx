@@ -29,6 +29,7 @@ import { AddProduct } from "./pages/AddProduct.jsx";
 import { Support } from "./pages/Support.jsx";
 import { BillsFlow } from "./component/BillsFlow.jsx";
 import { StockProducts } from "./pages/StockProducts.jsx";
+import { EditProduct } from "./pages/EditProduct.jsx";
 
 
 
@@ -69,6 +70,7 @@ const Layout = () => {
                         <Route element={<Faqs />} path="/faqs" />
                         <Route element={<Disclaimer />} path="/disclaimer" />
                         <Route element={<StockProducts />} path="/stock-products" />
+                        <Route element={<EditProduct />} path="/edit-product" />
                     </Routes>
                     <Footer />
                 </ScrollToTop>
