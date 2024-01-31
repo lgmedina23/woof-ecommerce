@@ -1,9 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Context } from "../store/appContext.js";
+import { useParams } from "react-router-dom";
+
 
 
 export const EditProduct = () => {
     const { store, actions } = useContext(Context);
+    const params = useParams();
     const id = store.product.id;
     const [name, setName] = useState(store.product.name);
     const [categorie, setCategorie] = useState(store.product.categorie);
@@ -28,10 +32,18 @@ export const EditProduct = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        //actions.updateUser({id, name, lastName, email, address, idNumber, typeIdNumber})
-        //await actions.putMyUsers()
+        // actions.updateUser({ id, name, lastName, email, address, idNumber, typeIdNumber })
+        // await actions.putMyUsers()
         navigate("/account")
     }
+
+    useEffect(() => {
+        const getData = async () => {
+            await actions.getOneProducts(params.idProduct);
+        }
+        getData()
+    }, [])
+
 
     return (
         <div className="container mb-5">

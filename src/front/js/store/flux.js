@@ -41,8 +41,24 @@ const getState = ({ getStore, getActions, setStore }) => {
           stripePublicKey: ''
         })
       },
-      updateUser: ({id, name, lastName, email, address, idNumber, typeIdNumber}) => {
-        setStore({ user: {id, first_name: name, last_name: lastName, email, address, identification_number: idNumber, identification_type: typeIdNumber}})
+      getEditProduct: async (productID) => {
+        const url = process.env.BACKEND_URL + "/api/edit-product/" + productID;
+        const options = {
+          method: "GET",
+          headers: { "Content-Type": "application/json" }
+        };
+        const response = await fetch(url, options);
+        if (response.ok) {
+          const data = await response.json();
+          const detail = data;
+          setStore({ product: detail });
+        } else {
+          console.log("ERROR:", response.status, response.statusText);
+        }
+      },
+
+      updateUser: ({ id, name, lastName, email, address, idNumber, typeIdNumber }) => {
+        setStore({ user: { id, first_name: name, last_name: lastName, email, address, identification_number: idNumber, identification_type: typeIdNumber } })
       },
       currentItems: () => {
         const cartItem = data.results.item ? data.results.item : []
@@ -65,7 +81,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const cartItem = data.results.item ? data.results.item : []
         setStore({ shoppingCartItems: cartItem });
         const billList = data.results.bills ? data.results.bills : []
-        setStore({ bills: billList}) 
+        setStore({ bills: billList })
         // store.billsItem =
         setStore({ isLogin: true });
       },
@@ -168,7 +184,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("ERROR:", response.status, response.statusText);
         }
       },
-      postProducts: async ({name, description, productDetail, pricing, stripeCode, weight, stock, subscribeable, imageUrl, category}) => {
+      postProducts: async ({ name, description, productDetail, pricing, stripeCode, weight, stock, subscribeable, imageUrl, category }) => {
         const url = process.env.BACKEND_URL + "/api/products";
         const token = localStorage.getItem("token")
         const options = {
@@ -177,8 +193,10 @@ const getState = ({ getStore, getActions, setStore }) => {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
           },
-          body: JSON.stringify({name, description, products_detail: productDetail, pricing, stripe_price: stripeCode, weight, stock, subscribeable, 
-                                image_url: imageUrl, categorie_id: category})
+          body: JSON.stringify({
+            name, description, products_detail: productDetail, pricing, stripe_price: stripeCode, weight, stock, subscribeable,
+            image_url: imageUrl, categorie_id: category
+          })
         };
         const response = await fetch(url, options);
         if (response.ok) {
@@ -290,9 +308,9 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
       updateQuantityItemCart: (cartItemId, quantity) => {
-        const dataToStore = {id: cartItemId, quantity: quantity}
-        setStore({currenItemCart: dataToStore})
-      }, 
+        const dataToStore = { id: cartItemId, quantity: quantity }
+        setStore({ currenItemCart: dataToStore })
+      },
       putShoppingCarts: async () => {
         const store = getStore();
         const dataToSend = { quantity: store.currenItemCart.quantity }
