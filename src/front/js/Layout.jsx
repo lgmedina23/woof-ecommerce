@@ -28,6 +28,8 @@ import { SignUp } from "./pages/SignUp.jsx";
 import { AddProduct } from "./pages/AddProduct.jsx";
 import { Support } from "./pages/Support.jsx";
 import { BillsFlow } from "./component/BillsFlow.jsx";
+import { StockProducts } from "./pages/StockProducts.jsx";
+import { EditProduct } from "./pages/EditProduct.jsx";
 
 
 
@@ -36,7 +38,7 @@ const Layout = () => {
     // The basename is used when your project is published in a subdirectory and not in the root of the domain
     // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
     const basename = process.env.BASENAME || "";
-    if(!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL/ >;
+    if (!process.env.BACKEND_URL || process.env.BACKEND_URL == "") return <BackendURL />;
 
     return (
         <div>
@@ -57,8 +59,8 @@ const Layout = () => {
                         <Route element={<ShoppingCart />} path="/shopping-cart" />
                         <Route element={<Category />} path="/category" />
                         <Route element={<UploadImage />} path="/upload-image" />
-                        <Route element={<PaymentSuccess />} path="/payment-success"/>
-                        <Route element={<PaymentCanceled />} path="/payment-canceled"/>
+                        <Route element={<PaymentSuccess />} path="/payment-success" />
+                        <Route element={<PaymentCanceled />} path="/payment-canceled" />
                         <Route element={<BotonPagoTest />} path="/boton-pago" />
                         <Route element={<AddProduct />} path="add-product" />
                         <Route element={<Support />} path="support" />
@@ -67,6 +69,8 @@ const Layout = () => {
                         <Route element={<CondicionesDeEnvio />} path="/condiciones-de-envio" />
                         <Route element={<Faqs />} path="/faqs" />
                         <Route element={<Disclaimer />} path="/disclaimer" />
+                        <Route element={<StockProducts />} path="/stock-products" />
+                        <Route element={<EditProduct />} path="/edit-product" />
                     </Routes>
                     <Footer />
                 </ScrollToTop>
