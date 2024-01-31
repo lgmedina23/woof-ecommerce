@@ -32,14 +32,14 @@ export const EditProduct = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // actions.updateUser({ id, name, lastName, email, address, idNumber, typeIdNumber })
+        //actions.updateUser({ id, name, lastName, email, address, idNumber, typeIdNumber })
         // await actions.putMyUsers()
         navigate("/account")
     }
 
     useEffect(() => {
-        const getData = async () => {
-            await actions.getOneProducts(params.idProduct);
+        const getData = () => {
+             actions.getEditProduct(params.idProduct);
         }
         getData()
     }, [])
