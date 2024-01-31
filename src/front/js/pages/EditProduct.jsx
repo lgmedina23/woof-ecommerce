@@ -37,10 +37,11 @@ export const EditProduct = () => {
         navigate("/account")
     }
 
+    const getData = async () => {
+        await actions.getOneProducts(params.idProduct);
+    }
+
     useEffect(() => {
-        const getData = () => {
-             actions.getEditProduct(params.idProduct);
-        }
         getData()
     }, [])
 
