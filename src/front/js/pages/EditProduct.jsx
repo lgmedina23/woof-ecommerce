@@ -97,7 +97,7 @@ export const EditProduct = () => {
                     </div>
                     <div className="form-group mt-2">
                         <label htmlFor="formFile" className="form-label">Imagen</label>
-                        <input className="form-control" value={imageUrl} onChange={handleImageUrl} type="file" id="formFile" />
+                        <input className="form-control" onChange={handleImageUrl} type="file" id="formFile" />
                     </div>
                     {/* <div className="p-3">{previewImage && (
                         <img className="img-thumbnail" src={previewImage} alt="Selected Image"
@@ -105,7 +105,7 @@ export const EditProduct = () => {
                     </div> */}
                     <div className="text-start ms-1 mt-3">
                         <div className="d-grid gap-2 d-md-block mb-3">
-                            <button className="btn btn-primary me-2" type="submit">Crear</button>
+                            <button className="btn btn-primary me-2" type="submit">Editar</button>
                             <Link to="/stock-products" className="btn btn-secondary me-2">Cancelar</Link>
                         </div>
                     </div>
