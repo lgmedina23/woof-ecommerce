@@ -17,6 +17,7 @@ export const EditProduct = () => {
     const [stock, setStock] = useState(store.product.stock);
     const [pricing, setPricing] = useState(store.product.pricing);
     const [imageUrl, setImageUrl] = useState(store.product.image_url);
+    const [productDetail, setProductDetail] = useState(store.product.products_detail);
 
     const navigate = useNavigate()
 
@@ -28,13 +29,13 @@ export const EditProduct = () => {
     const handleStock = (event) => setStock(event.target.value)
     const handlePricing = (event) => setPricing(event.target.value)
     const handleImageUrl = (event) => setImageUrl(event.target.value)
-
+    const handleProductDetail = (event) => setProductDetail(event.target.value)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        //actions.updateUser({ id, name, lastName, email, address, idNumber, typeIdNumber })
-        // await actions.putMyUsers()
-        navigate("/account")
+        actions.updateProduct({ id, name, description, pricing, stripe, weight, stock, imageUrl, categorie, productDetail })
+        await actions.putOneProduct()
+        navigate("/stock-products")
     }
 
     const getData = async () => {
@@ -72,6 +73,10 @@ export const EditProduct = () => {
                         <input type="text" value={description} onChange={handleDescription} className="form-control" id="descripción" aria-describedby="emailHelp" />
                     </div>
                     <div className="form-group">
+                        <label htmlFor="productDetail" className="form-label mt-3">Detalles</label>
+                        <input type="text" value={productDetail} onChange={handleProductDetail} className="form-control" id="productDetail" aria-describedby="emailHelp" />
+                    </div>
+                    <div className="form-group">
                         <label htmlFor="peso" className="form-label mt-3">Peso</label>
                         <input type="number" value={weight} onChange={handleWeight} className="form-control" id="peso" aria-describedby="emailHelp" />
                     </div>
@@ -97,15 +102,11 @@ export const EditProduct = () => {
                     </div>
                     <div className="form-group mt-2">
                         <label htmlFor="formFile" className="form-label">Imagen</label>
-                        <input className="form-control" value={imageUrl} onChange={handleImageUrl} type="file" id="formFile" />
+                        <input className="form-control" onChange={handleImageUrl} type="file" id="formFile" />
                     </div>
-                    {/* <div className="p-3">{previewImage && (
-                        <img className="img-thumbnail" src={previewImage} alt="Selected Image"
-                            style={{ width: '50%', height: '50%' }} />)}
-                    </div> */}
                     <div className="text-start ms-1 mt-3">
                         <div className="d-grid gap-2 d-md-block mb-3">
-                            <button className="btn btn-primary me-2" type="submit">Crear</button>
+                            <button className="btn btn-primary me-2" type="submit">Guardar</button>
                             <Link to="/stock-products" className="btn btn-secondary me-2">Cancelar</Link>
                         </div>
                     </div>

@@ -153,7 +153,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         } else {
           console.log("ERROR:", response.status, response.statusText);
         }
-      }, // falta  el DELETE de "/api/users" + userId; (preguntar hector)
+      },
       getProducts: async () => {
         const url = process.env.BACKEND_URL + "/api/products";
         const options = {
@@ -208,6 +208,64 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.log("ERROR:", response.status, response.statusText);
         }
       }, // falta el PUT y DELETE de /products/<int:products_id>'
+      putOneProduct: async () => {
+        const store = getStore();
+        const productId = store.product.id
+        const dataToSend = {
+          name: store.product.name,
+          description: store.product.description,
+          pricing: store.product.pricing,
+          stripe_price: store.product.stripe_price,
+          weight: store.product.weight,
+          stock: store.product.stock,
+          image_url: store.product.image_url,
+          categorie_id: store.product.categorie_id,
+          products_detail: store.product.products_detail,
+          subscribeable: false
+        }
+        const url = process.env.BACKEND_URL + "/api/products/" + productId;
+        const token = localStorage.getItem("token")
+        const options = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify(dataToSend)
+        };
+        const response = await fetch(url, options);
+        if (response.ok) {
+          const data = await response.json();
+          const detail = data.results;
+          setStore({ product: detail });
+        } else {
+          console.log("ERROR:", response.status, response.statusText);
+        }
+      },
+      updateProduct: ({ id, name, description, pricing, stripe, weight, stock, imageUrl, categorie, productDetail }) => {
+        setStore({ product: { id, name, description, pricing, stripe_price: stripe, weight, stock, image_url: imageUrl, categorie_id: categorie, products_detail: productDetail } })
+      },
+      deleteOneProduct: async () => {
+        const store = getStore();
+        const productId = store.product.id
+        const url = process.env.BACKEND_URL + "/api/products/" + productId;
+        const token = localStorage.getItem("token")
+        const options = {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          }
+        };
+        const response = await fetch(url, options);
+        if (response.ok) {
+          const data = await response.json();
+          const detail = data.results;
+          setStore({ product: detail });
+        } else {
+          console.log("ERROR:", response.status, response.statusText);
+        }
+      },
       getCategories: async () => {
         const url = process.env.BACKEND_URL + "/api/categories";
         const options = {

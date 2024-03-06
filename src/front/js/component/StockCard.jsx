@@ -7,6 +7,10 @@ import { Modal } from "./Modal.jsx";
 export const StockCard = (props) => {
     const { store, actions } = useContext(Context);
 
+    const handleDelete = async (event) => {
+        event.preventDefault();
+        actions.deleteOneProduct();
+    }
 
     return (
         <section>
@@ -34,7 +38,7 @@ export const StockCard = (props) => {
                             <Link to={"/products/" + props.product.id}>Mas detalles</Link>
                         </div>
                         <div className="d-grid">
-                            <button className="btn btn-primary" type="button">
+                            <button className="btn btn-primary" type="button" onClick={handleDelete}>
                                 <i className="fa-regular fa-trash-can me-1"></i>
                                 Eliminar
                             </button>
