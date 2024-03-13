@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { Context } from "../store/appContext.js";
 import { useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
-export const ProductDetails = () => {
+export const StockDetails = () => {
     const { store, actions } = useContext(Context);
     const params = useParams();
-    const [quantity, setQuantity] = useState(1)
-    const handleQuantity = (event) => { setQuantity(event.target.value) }
-    const handleOnSubmit = (event) => {
-        event.preventDefault();
-    }
+    const navigate = useNavigate();
 
-    const handleAddItem = async () => {
-        actions.currentItemCart(store.product.pricing, 0, store.product.id, quantity)
-        await actions.postShoppingCartItem(store.product.id)
+    const handleDelete = async (event) => {
+        event.preventDefault();
+        // actions.deleteOneProduct(store.product.id);
+        await actions.deleteOneProduct();
+        await actions.getProducts();
+        navigate("/stock-products")
     }
 
     useEffect(() => {
@@ -59,7 +59,17 @@ export const ProductDetails = () => {
                                 <div className="col">
                                     <div className="container text-center">
                                         <div className="row row-cols-1 row-cols-lg-1">
-                                            <form className="form" onSubmit={handleOnSubmit}>
+                                            <div className="d-grid gap-2 d-md-block">
+                                                <Link to={"/edit-product/" + store.product.id} className="btn btn-primary me-5">
+                                                    Editar
+                                                    <i className="fa-solid fa-pen-to-square ms-1"></i>
+                                                </Link>
+                                                <button className="btn btn-primary" type="button" onClick={handleDelete}>
+                                                    <i className="fa-regular fa-trash-can me-1"></i>
+                                                    Eliminar
+                                                </button>
+                                            </div>
+                                            {/* <form className="form" onSubmit={handleOnSubmit}>
                                                 <div className="col">
                                                     <h5 className="text-start text-dark mb-3 fw-bold">Cantidad</h5>
                                                     <div className="form-outline d-flex" style={{ width: "17rem" }}>
@@ -75,7 +85,7 @@ export const ProductDetails = () => {
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </form> */}
                                         </div>
                                     </div>
                                 </div>

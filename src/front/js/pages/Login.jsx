@@ -27,7 +27,6 @@ export const Login = () => {
     const response = await fetch(url, options)
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       localStorage.setItem('token', data.token);
       actions.loginData(data);
       navigate("/");
@@ -61,12 +60,12 @@ export const Login = () => {
               {viewPassword ? <i className="far fa-eye-slash"></i> : <i className="far fa-eye"></i>}
             </span>
           </div>
-            <div className="text-start mt-3">
-              <div className="d-grid gap-2 d-md-block mb-3">
-                <button type="button" onClick={login} className="btn btn-primary me-2">Login</button>
-                <button type="reset" className="btn btn-secondary me-2">Cancel</button>
-              </div>
+          <div className="text-start mt-3">
+            <div className="d-grid gap-2 d-md-block mb-3">
+              <button type="button" onClick={login} className="btn btn-primary me-2">Login</button>
+              <button type="reset" className="btn btn-secondary me-2">Cancel</button>
             </div>
+          </div>
         </form>
       </div>
     </div>

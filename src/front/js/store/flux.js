@@ -248,6 +248,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       deleteOneProduct: async () => {
         const store = getStore();
         const productId = store.product.id
+        console.log(productId);
         const url = process.env.BACKEND_URL + "/api/products/" + productId;
         const token = localStorage.getItem("token")
         const options = {
@@ -261,7 +262,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         if (response.ok) {
           const data = await response.json();
           const detail = data.results;
-          setStore({ product: detail });
+          // setStore({ product: detail });
         } else {
           console.log("ERROR:", response.status, response.statusText);
         }
