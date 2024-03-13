@@ -30,6 +30,7 @@ import { Support } from "./pages/Support.jsx";
 import { BillsFlow } from "./component/BillsFlow.jsx";
 import { StockProducts } from "./pages/StockProducts.jsx";
 import { FormProduct } from "./component/FormProduct.jsx";
+import { StockDetails } from "./pages/StockDetails.jsx";
 
 
 
@@ -71,6 +72,7 @@ const Layout = () => {
                         <Route element={<Disclaimer />} path="/disclaimer" />
                         <Route element={<StockProducts />} path="/stock-products" />
                         <Route element={<FormProduct />} path="/edit-product/:idProduct" />
+                        <Route element={<StockDetails />} path="/stock-details/:idProduct" />
                     </Routes>
                     <Footer />
                 </ScrollToTop>

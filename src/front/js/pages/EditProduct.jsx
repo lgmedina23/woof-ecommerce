@@ -33,7 +33,7 @@ export const EditProduct = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        actions.updateProduct({ id, name, description, pricing, stripe, weight, stock, imageUrl, categorie, productDetail })
+        await actions.updateProduct({ id, name, description, pricing, stripe, weight, stock, imageUrl, categorie, productDetail })
         await actions.putOneProduct()
         navigate("/stock-products")
     }

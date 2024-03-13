@@ -25,11 +25,9 @@ export const AddProduct = () => {
     const handleWeight = (event) => setWeight(event.target.value)
     const handleStripeCode = (event) => setStripeCode(event.target.value)
 
-    // const navigate = useNavigate()
-
     const subscribeable = false
     const productDetail = ''
-    
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (files) {
@@ -38,8 +36,10 @@ export const AddProduct = () => {
             await actions.uploadFile(files[0]);
         }
         const imageUrl = store.upload
-        await actions.postProducts({name, description, productDetail, pricing, stripeCode, 
-                                    weight, stock, subscribeable, imageUrl, category })
+        await actions.postProducts({
+            name, description, productDetail, pricing, stripeCode,
+            weight, stock, subscribeable, imageUrl, category
+        })
         await actions.getProducts()
         navigate("/category")
     }
